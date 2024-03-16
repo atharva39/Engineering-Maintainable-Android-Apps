@@ -81,7 +81,7 @@ public class GeoUtilsTest {
        Foo f = foo.getBar(2).getFoo(1);
     }
 ```
-**Answers**
+**Answer:**
 ***null will be assigned to the variable "f"***
 
 ### Question 6: What could be added on line 6 below to ensure that the view with ID R.id.errorMessage is visible on screen and has the contents "Bad password" (select all that apply)? ###
@@ -94,7 +94,7 @@ public class GeoUtilsTest {
         // What should be added here
     }
 ```
-**Answer**
+**Answer:**
 ```
 onView(withId(R.id.errorMessage))
         .check(matches(isDisplayed()));
