@@ -6,6 +6,128 @@ Week 1
 Week 2
 Week 3
 Week 4
+# Week 2 : Testing 2 Quiz #
+### Question 1: What is an Android Instrumentation Test (select all that apply)? ###
+**Answer:**
+***an integration test that includes the Android runtime libraries.***
+
+### Question 2: Which of the following are true of unit tests vs. integration tests (select all that apply)? ###
+**Answer:**
+***The failure of a unit test often more directly points to the source of the failure than an integration test,***
+***Unit tests isolate individual components while integration tests check the interactions of multiple components.***
+***Integration tests are often slower than unit tests.***
+
+### Question 3: Which of the following creates a valid mock PostalCodeProvider that will return "37212" for the following call (select all that apply): ###
+```
+postalCodeProvider.getPostalCode(2.11, 3.09)
+```
+**Answer:**
+```
+@RunWith(MockitoJUnitRunner.class)
+public class GeoUtilsTest {
+
+    @Mock
+    private PostalCodeProvider postalCodeProvider;
+
+    @Before
+    public void setUp() {
+        when(
+          postalCodeProvider
+            .getPostalCode(anyDouble(), anyDouble())).thenReturn("37212");
+    }
+}
+```
+```
+@RunWith(MockitoJUnitRunner.class)
+public class GeoUtilsTest {
+
+    @Mock
+    private PostalCodeProvider postalCodeProvider;
+
+    @Before
+    public void setUp() {
+        when(
+          postalCodeProvider
+            .getPostalCode(anyDouble(), 3.09)).thenReturn("37212");
+    }
+}
+```
+
+### Question 4: Which of the following are true (select all that apply)? ###
+**Answer:**
+***Mocks can be used to help isolate components for unit tests.***
+***Mocks can be used to help make tests run faster by eliminating slow running components.***
+
+### Question 5: What will be the result of line 19 (select all that apply)? ###
+```
+@RunWith(MockitoJUnitRunner.class)
+public class GeoUtilsTest {
+
+    @Mock
+    private Foo foo;
+
+    @Mock
+    private Bar bar;
+
+    @Before
+    public void setUp(){
+       when(foo.getBar(anyInt()).thenReturn(bar);
+       when(bar.getFoo(1)).thenReturn(null);
+       when(bar.getFoo(2)).thenReturn(foo));
+    }
+
+    @Test
+    public void coordinatesWithNoZipCodeReturnNull() {
+       Foo f = foo.getBar(2).getFoo(1);
+    }
+```
+**Answers**
+***null will be assigned to the variable "f"***
+
+### Question 6: What could be added on line 6 below to ensure that the view with ID R.id.errorMessage is visible on screen and has the contents "Bad password" (select all that apply)? ###
+```
+    @Test
+    public void testPasswordLengthRuleTriggersErrorMsg() {
+        onView(withId(R.id.passwordEditText)).perform(typeText("abc"));
+        onView(withId(R.id.loginButton)).perform(click());
+
+        // What should be added here
+    }
+```
+**Answer**
+```
+onView(withId(R.id.errorMessage))
+        .check(matches(isDisplayed()));
+onView(withId(R.id.errorMessage))
+        .check(matches(withText("Bad password")));
+```
+```
+onView(withId(R.id.errorMessage))
+        .check(matches(isDisplayed()))
+        .check(matches(withText("Bad password")));
+```
+
+### Question 7: Which of the following are true of refactoring (select all that apply)? ###
+**Answer:**
+***Refactoring does not introduce new end-user features.***
+
+### Question 8: What code could be added to insert text into the R.id.welcome TextView (select all that apply)? ###
+**Answer:**
+```
+ onView(withId(R.id.welcome)).perform(typeText("abc"));
+```
+
+### Question 9: What is the purpose of regression testing (select all that apply)? ###
+**Answer:**
+***to check that changes to a code base have not introduced changes in expected behavior of interfaces***
+***to check that changes to a code base have not introduced bugs in previously working code***
+
+### Question 10: Which of the following are non-functional properties (select all that apply)? ###
+**Answers:**
+***how much memory a method consumes***
+***how fast a method executes***
+***how secure a method is***
+***how extensible a method is***
 
 # Week 3 : Security 1 Quiz #
 ### Question 1: Which of the following is true of the economy of mechanism design principle (select all that apply)? ###
