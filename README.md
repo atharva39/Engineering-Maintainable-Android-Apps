@@ -7,7 +7,7 @@ Week 2
 Week 3
 Week 4
 
-# Week 3 : Security 1 Quiz
+# Week 3 : Security 1 Quiz #
 ### Question 1: Which of the following is true of the economy of mechanism design principle (select all that apply)? ###
 **Answer:**
 * Using less code to implement the same functionality will always mean that the code is less extensible and modular.
@@ -102,3 +102,49 @@ public void sendData (int securityLevel, String data){
 ***never***
 
 # Result: 100% #
+
+# Week 4 : Security 2 Quiz #
+### Question 1: Which of the following are ways that Android protects your app (select all that apply)? ###
+**Answer:**
+***It ensures data that is stored privately by your app is not accessible to Other apps.***
+
+### Question 2: Question 2 What is the potential security issue with the code shown below (select all that apply)? ###
+```
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    setContentView(R.layout.main);
+
+    // Get the intent that started this activity
+    Intent intent = getIntent();
+    String uri = intent.getStringExtra("uri");
+    startDownload(uri);
+}
+
+public void onDownloadComplete(String downloadedData) {
+  Intent result = ...
+  result.putExtra("data", downloadedData); 
+  setResult(Activity.RESULT_OK, result);
+  finish();
+}
+```
+**Answer:**
+***The code may lead to a privilege escalation if the calling app does not have the Internet permission.***
+
+### Question 3: Security mistakes are made due to which of the following reasons (select all that apply)? ###
+**Answers:**
+***The inherent complexity of software makes it difficult not to make mistakes.***
+
+### Question 4: On an Android device, when is a Linux user account created (select all that apply)? ###
+**Answers:**
+***when app is installed***
+
+### Question 5: Which Of the following are true on Android (select all that apply)? ###
+**Answers**
+Apps can declare new permissions that Other apps can use.
+There is a limited set Of permissions that can be used.
+An app can provide access to a privileged resource to another app.
+An app can not provide access to a privileged resource to another app unless the other app also has the appropriate uses-permission.
+
+# Result 100% #
